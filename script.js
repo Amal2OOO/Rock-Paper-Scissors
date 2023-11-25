@@ -1,23 +1,27 @@
 let computerWins = 0;
 let playerWins = 0;
 
-while(computerWins + playerWins < 5){
-  let playerSelection = prompt('Choose rock, paper or scissors');
-  playerSelection = playerSelection.toLowerCase();
-  let computerSelection = getComputerChoice();
-  let result = playRound(playerSelection, computerSelection);
+game();
 
-  if(result != 'tie') {
-    console.log(`You picked ${playerSelection}, Computer picked ${computerSelection} .You ${result} round!`);
-  } else {
-    console.log('Tie, try again!');
-  };
+function game() {
+  while(computerWins + playerWins < 5){
+    let playerSelection = prompt('Choose rock, paper or scissors');
+    playerSelection = playerSelection.toLowerCase();
+    let computerSelection = getComputerChoice();
+    let result = playRound(playerSelection, computerSelection);
 
-  if(computerWins + playerWins === 5 && computerWins > playerWins) {
-    console.log(`You lose, you win ${playerWins} rounds! computer win ${computerWins} rounds!`);
-  } else if(computerWins + playerWins === 5 && computerWins < playerWins) {
-    console.log(`You win, you win ${playerWins} rounds! computer win ${computerWins} rounds!`);
-  };
+    if(result != 'tie') {
+      console.log(`You picked ${playerSelection}, Computer picked ${computerSelection} .You ${result} round!`);
+    } else {
+      console.log('Tie, try again!');
+    };
+
+    if(computerWins + playerWins === 5 && computerWins > playerWins) {
+      console.log(`You lose, you win ${playerWins} rounds! computer win ${computerWins} rounds!`);
+    } else if(computerWins + playerWins === 5 && computerWins < playerWins) {
+      console.log(`You win, you win ${playerWins} rounds! computer win ${computerWins} rounds!`);
+    };
+  }
 }
 
 function playRound(playerSelection, computerSelection) {
